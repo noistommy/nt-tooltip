@@ -1,0 +1,28 @@
+header {
+  margin-top: 100px;
+  text-align: center;
+}
+main {
+  margin: 120px 0;
+}
+.main-title {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 700;
+}
+.menu-wrapper {
+  padding: 20px 0;
+  /* position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px; */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    li {
+      list-style: none;
+    }
+  }
+}
+

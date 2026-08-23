@@ -1,0 +1,11 @@
+.container {
+  padding: 0 !important;
+  opacity: 0.8;
+  // filter: grayscale(0.9);
+  #shiki-container {
+    pre {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
