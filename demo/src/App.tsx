@@ -6,10 +6,21 @@ import './App.scss'
 import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es.js'
 import '../../dist/nt-tooltip.css'
 
+
 function Header() {
   return (
     <header>
-      <div className="main-title" nt-tooltip="content:Welcome NT Tooltip!!;">NT Tooltip</div>
+      <div className='main-ex be flex center'>
+        <div className='nt-tooltip invert top-center huge' 
+          style={{
+            position: 'static',
+            top: '0',
+            left: '50%',
+            textAlign: 'center'
+          }}
+        >Welcome <span className="bold px-2">NT Tooltip</span>!!</div>
+      </div>
+      <div className="main-title">NT Tooltip</div>
       <div className="main-desc mb-4">
         NT Tooltip is a user-defined module for 
         <span className="be-tag lightblue label ml-2 mr-2">React</span>
@@ -39,7 +50,7 @@ function Nav() {
   return (
     <nav className="nav be flex center gap-4 p-4">
       <li>
-        <div className="be-buttons">
+        <div className="be-buttons small">
           <div 
             nt-tooltip="content: Theme-light; pos: bottom-center"
             className={`be-button icon ${theme === 'light' ? 'selected' : ''}`} 
@@ -64,10 +75,10 @@ function Nav() {
         </div>
       </li>
       <li>
-        <div className="be-button" nt-tooltip="pos: bottom-center">
+        <div className="be-button small" nt-tooltip="pos: bottom-center">
           <div nt-target="true">
             <i className="xi-github"></i>
-            <span className='pl-4'>noistommy/nt-tooltip</span>
+            <span className='pl-4'>noistommy/react-nt-tooltip</span>
           </div>
           <i className="icon left xi-github"></i>
           Github

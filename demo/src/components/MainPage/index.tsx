@@ -67,7 +67,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Trigger</div>
-          <p>툴립은 마우스 호버에 반응하여 표시합니다. 하지만 trigger 속성을 통해 click을 지정하면 클릭에 반응하여 표시 할 수 있습니다.</p>
+          <p>툴팁은 마우스 hover에 반응하여 표시합니다. 하지만 trigger 속성을 통해 click을 지정하면 클릭에 반응하여 표시 할 수 있습니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -92,11 +92,11 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Content Type</div>
-          <p>툴팁의 콘텐츠는 두가지 방식으로 제공 가능하다. `nt-tooltip` 속성의 값에 'content: content text;' 를 포함하여 전달하거나 Target Element 내에 `nt-target` 속성의 엘리먼트로 전달 할수있다. </p>
-          <p>콘텐츠 내에 html를 포함하여 제공 할 수 있으나 이 경우 Target 방식으로 복잡한 html 콘텐츠를 제공 하는 것이 더 효과적이다.</p>
+          <p>툴팁의 콘텐츠는 두가지 방식으로 제공합니다. `nt-tooltip` 속성의 값에 'content: content text;' 를 포함하여 전달하거나 Target Element 내에 `nt-target` 속성의 엘리먼트로 전달 할수있다. </p>
+          <p>콘텐츠 내에 html를 포함하여 제공 할 수 있으나 이 경우 Target 방식으로 복잡한 html 콘텐츠를 제공 하는 것이 더 효과적입니다.</p>
         </div>
         <div>
-          <div className="be-segment border align-center">
+          <div className="be-segment surface align-center">
               <div className="contents">
                   <div className="be-button" nt-tooltip="content: Content;">
                       Content
@@ -119,7 +119,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Position</div>
-          <p>pos 속성은 기본적으로 <code>direct-align</code> 구조로 적용 합니다. 예를들면 'top-center', 'left-start' 처럼, 하지만 가운데 정렬을 기본 값으로 두고 position만 입력하더라도 동작 가능합니다.</p>
+          <p>pos 속성은 기본적으로 <code className="be-tag label">'position'-'alignment'</code> 구조로 적용 합니다. 예를들면 'top-center', 'left-start' 처럼, 하지만 가운데 정렬을 기본 값으로 두고 position만 입력하더라도 동작 가능합니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -154,7 +154,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Position + Aligns</div>
-          <p>pos 속성은 기본적으로 <code>direct-align</code> 구조로 적용 합니다. 아래 예제로 테스트 할 수 있습니다. </p>
+          <p>pos 속성은 기본적으로 <code className="be-tag label">'position'-'alignment'</code>  구조로 적용 합니다. 아래 예제로 테스트 할 수 있습니다. </p>
           
         </div>
         <div>
@@ -168,7 +168,7 @@ export default function MainPage() {
                   <div className={`be-button border compact ${position === 'right' ? 'selected' : ''}`} onClick={() => setPosition('right')}>Right</div>
                 </div>
                 <div className='be-buttons'>
-                  <label className="bold px-3 py-1">Align:</label> 
+                  <label className="bold px-3 py-1">Alignment:</label> 
                   <div className={`be-button border compact ${align === 'start' ? 'selected' : ''}`} onClick={() => setAlign('start')}>start</div>
                   <div className={`be-button border compact ${align === 'center' ? 'selected' : ''}`} onClick={() => setAlign('center')}>center</div>
                   <div className={`be-button border compact ${align === 'end' ? 'selected' : ''}`} onClick={() => setAlign('end')}>end</div>
@@ -198,7 +198,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Offset</div>
-          <p>대상과 툴팁은 항상 적당한 간격을 유지합니다. 기본값은 <code>10px</code> 입니다. 속성을 통해 사용자가 원하는 간격을 성정할 수 있습니다.</p>
+          <p>대상과 툴팁은 항상 적당한 간격을 유지합니다. 기본값은 <code className="be-tag label">10px</code> 입니다. 속성을 통해 사용자가 원하는 간격을 성정할 수 있습니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -229,7 +229,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Size</div>
-          <p>기본적으로 툴팁의 font 크기는 본문 크기와 동일합니다. size: small 속성을 통해 작은 크기의 툴팁을 쵸시 할 수 있습니다.</p>
+          <p>기본적으로 툴팁의 font 크기는 본문 크기와 동일합니다. <code className="be-tag label">size: small</code> 속성을 통해 작은 크기의 툴팁을 표시 할 수 있습니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -254,7 +254,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">MaxWidth</div>
-          <p>툴팁의 최대 너비는 250px로 제한되어 있습니다. maxWidth 속성을 통해 최대 너비를 조절할 수 있습니다.</p>
+          <p>툴팁의 최대 너비는 250px로 제한되어 있습니다. <code className="be-tag label">maxWidth: number</code> 속성을 통해 최대 너비를 조절할 수 있습니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -291,7 +291,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">TextAlign</div>
-          <p>툴팁 콘텐츠의 내부 텍스트 정렬을 설정합니다. 기본값은 center 입니다.</p>
+          <p>툴팁 콘텐츠의 내부 텍스트 정렬을 설정합니다. 기본값은 <code className="be-tag label">center</code> 입니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -331,7 +331,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Padding</div>
-          <p>툴팁 콘텐츠 영역의 여백을 설정합니다. 기본값은 8px 입니다.</p>
+          <p>툴팁 콘텐츠 영역의 여백을 설정합니다. 기본값은 <code className="be-tag label">8px</code> 입니다.</p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -339,7 +339,7 @@ export default function MainPage() {
                   <div className="be-button border" nt-tooltip="padding: 4;">
                       Padding 4
                       <span nt-target="true">
-                        <div className='h5'>Padding 4 12</div>
+                        <div className='h5'>Padding 8</div>
                         {lorem}
                       </span>
                   </div>
@@ -394,7 +394,7 @@ function GetStart() {
         <div className="header">
           <div className="bold large">Usage</div>
           <p>전역에서 실행 하여 프로젝트 전체 영역에서 툴팁을 사용 할 수 있습니다.</p>
-          <p>컴포넌트 적용 시 반드시 nt-tooltip 속성이 dom에 상속되도록 랜더링 해야 합니다.(html은 바로 적용 가능함)</p>
+          <p>컴포넌트 적용 시 반드시 nt-tooltip 속성이 children에 상속되도록 랜더링 해야 합니다.(html은 바로 적용 가능함)</p>
         </div>
         <div>
           <div className='be-segment border p-0'>

@@ -20,15 +20,15 @@
 
 ## Installation
 
-```sh
-$ npm install react-nt-tooltip
+```bash
+npm install react-nt-tooltip
 ```
 
 ---
 
 ## Usage
 
-### Registration`
+### Registration
 
 ```jsx
 import React, { useEffect } from "react";
@@ -86,6 +86,3 @@ function App() {
 - **maxWidth**: _number_ ▶︎ `250`
 - **textAlign**: _'left' | 'center' | 'right'_ ▶︎ `center`
 - **offset**: _number_ ▶︎ `10`
-# nt-tooltip
-# react-nt-tooltip
-# react-nt-tooltip
