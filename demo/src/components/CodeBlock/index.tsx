@@ -8,11 +8,11 @@ import codeStyle from './code.module.scss'
 export default function CodeBlock({
   code = '',
   language = 'javascript',
-  theme = '',
+  theme = 'github-light',
 }: { 
   code: string,
   language: string,
-  theme: string,
+  theme?: string,
 }) {
 
 

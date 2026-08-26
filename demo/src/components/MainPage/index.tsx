@@ -33,7 +33,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.base}
             />
           </div>
@@ -59,7 +58,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.invert}
             />
           </div>
@@ -87,7 +85,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.trigger}
             />
           </div>
@@ -113,7 +110,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.external}
             />
           </div>
@@ -140,7 +136,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.contentType}
             />
           </div>
@@ -175,7 +170,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.position}
             />
           </div>
@@ -219,7 +213,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.aligns}
             />
           </div>
@@ -250,7 +243,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.offset}
             />
           </div>
@@ -275,7 +267,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.size}
             />
           </div>
@@ -312,7 +303,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.maxWidth}
             />
           </div>
@@ -352,7 +342,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.textAlign}
             />
           </div>
@@ -399,7 +388,6 @@ export default function MainPage() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.padding}
             />
           </div>
@@ -421,7 +409,6 @@ function GetStart() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='bash'
-              theme=''
               code={`npm install react-nt-tooltip`}
             />
           </div>
@@ -437,14 +424,12 @@ function GetStart() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={Codes.usage}
             />
           </div>
           <div className='be-segment border p-0'>
             <CodeBlock
               language='jsx'
-              theme=''
               code={`// in component.tsx \n<Parent nt-tooltip="{... tooltip options}"> content</Parent>`}
             />
           </div>

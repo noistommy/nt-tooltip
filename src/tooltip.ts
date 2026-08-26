@@ -53,10 +53,11 @@ export class Tooltip {
     this.root = root
     this.options = { ...this.#defaultOption, ...options }
     this._show = false
-    if (!this.options.external) {
+    if (this.options.external) {
+      this.setExternal(this.options.external)
+    } else {
       this.#createEvents()
     }
-      
   }
 
   #createEvents(): void {
@@ -99,8 +100,6 @@ export class Tooltip {
     if (this._show) return
     this._show = true
     this.setTooltip()
-
-    this.setExternal(this.options.external)
   }
 
   setClose = (): void => {

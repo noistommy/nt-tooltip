@@ -38,7 +38,7 @@ import React, { useEffect } from "react";
 import {initTooltip, clearTooltip } from "react-nt-tooltip";
 
 // import  style css or use yours
-import “react-nt-tooltip/tooltip.css”; // or 'nt-tooltip/tooltip.css'
+import “react-nt-tooltip/tooltip.css”;
 
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
 
 ```
 
-### use tooltip in component jsx
+### Use Tooltip in Component JSX
 
 ```html
 <!-- basic -->
@@ -88,3 +88,4 @@ function App() {
 - **maxWidth**: _number_ ▶︎ `250`
 - **textAlign**: _'left' | 'center' | 'right'_ ▶︎ `center`
 - **offset**: _number_ ▶︎ `10`
+- **external**: _'show' | 'hide' | null_ ▶︎ `null`
