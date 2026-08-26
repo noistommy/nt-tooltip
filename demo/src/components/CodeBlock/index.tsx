@@ -8,7 +8,7 @@ import codeStyle from './code.module.scss'
 export default function CodeBlock({
   code = '',
   language = 'javascript',
-  theme = 'github-light',
+  theme = '',
 }: { 
   code: string,
   language: string,
@@ -57,7 +57,7 @@ export default function CodeBlock({
     <div className={codeStyle.container}>
       <ShikiHighlighter 
         language={language}
-        theme={autoTheme}
+        theme={autoTheme || "github-light"}
         showLanguage={true}
         addDefaultStyles={true}
         as="div"
