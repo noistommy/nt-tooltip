@@ -21,14 +21,12 @@ function Header() {
           }}
         >Welcome <span className="bold px-2">NT Tooltip</span>!!</div>
       </div>
-      <div className="main-title">NT Tooltip</div>
+      <div className="main-title">NT Tooltip </div>
       <div className="main-desc mb-4">
-        NT Tooltip is a user-defined module for 
-        <div className='be-tags attached ml-2 mr-2'>
-          <span className="be-tag lightblue label">React</span>
-          <span className="be-tag deepblue label">v.{version}</span>
-
-        </div>
+        NT Tooltip
+        <span className="be-tag label round mx-2">v {version}</span>
+         is a user-defined module for 
+        <span className="be-tag lightblue label ml-2 mr-2">React</span>
       </div>
       <div className='main-wrapper'>
         <Nav />
