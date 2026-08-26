@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Cabinet from './NTCabinet/Cabinet.tsx'
 import MainPage from './components/MainPage'
 import './App.scss'
+import { version } from '../../package.json'
 
 import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es.js'
 import '../../dist/nt-tooltip.css'
@@ -23,7 +24,11 @@ function Header() {
       <div className="main-title">NT Tooltip</div>
       <div className="main-desc mb-4">
         NT Tooltip is a user-defined module for 
-        <span className="be-tag lightblue label ml-2 mr-2">React</span>
+        <div className='be-tags attached ml-2 mr-2'>
+          <span className="be-tag lightblue label">React</span>
+          <span className="be-tag deepblue label">v.{version}</span>
+
+        </div>
       </div>
       <div className='main-wrapper'>
         <Nav />
