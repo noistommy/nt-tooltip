@@ -1,7 +1,7 @@
 import './tooltip.scss'
 import { parseOptions } from './tooltip-utill'
 
-export type TooltipTrigger = 'hover' | 'click'
+export type TooltipTrigger = 'hover' | 'click' | 'focus'
 export type TooltipDirection = 'top' | 'bottom' | 'left' | 'right'
 export type TooltipAlign = 'start' | 'center' | 'end'
 
@@ -18,6 +18,7 @@ export interface TooltipOptions {
   textAlign: string
   offset: number
   customClass: string
+  external: 'show' | 'hide' | null
 }
 
 export type TooltipOptionsInput = Partial<TooltipOptions>
@@ -36,6 +37,7 @@ export class Tooltip {
     textAlign: 'center',
     offset: 10,
     customClass: '',
+    external: null,
   }
 
   root: HTMLElement
@@ -50,14 +52,20 @@ export class Tooltip {
   constructor(root: HTMLElement, options: TooltipOptionsInput = {}) {
     this.root = root
     this.options = { ...this.#defaultOption, ...options }
-    this._show = this.options.show
-    this.#createEvents()
+    this._show = false
+    if (!this.options.external) {
+      this.#createEvents()
+    }
+      
   }
 
   #createEvents(): void {
     if (this.options.trigger === 'hover') {
       this.root.addEventListener('mouseenter', this.setShow)
       this.root.addEventListener('mouseleave', this.setClose)
+    } else if (this.options.trigger === 'focus') {
+      this.root.addEventListener('focusin', this.setShow)
+      this.root.addEventListener('focusout', this.setClose)
     } else {
       this.root.addEventListener('click', this.setToggle)
     }
@@ -65,6 +73,9 @@ export class Tooltip {
 
   update(options: TooltipOptionsInput): void {
     this.options = { ...this.options, ...options }
+    if (this.options.external) {
+      this.setExternal(this.options.external)
+    }
     if (this._show) {
       this.setAttribute()
       this.setPosition()
@@ -76,6 +87,9 @@ export class Tooltip {
     if (this.options.trigger === 'hover') {
       this.root.removeEventListener('mouseenter', this.setShow)
       this.root.removeEventListener('mouseleave', this.setClose)
+    } else if (this.options.trigger === 'focus') {
+      this.root.removeEventListener('focusin', this.setShow)
+      this.root.removeEventListener('focusout', this.setClose)
     } else {
       this.root.removeEventListener('click', this.setToggle)
     }
@@ -85,6 +99,8 @@ export class Tooltip {
     if (this._show) return
     this._show = true
     this.setTooltip()
+
+    this.setExternal(this.options.external)
   }
 
   setClose = (): void => {
@@ -103,6 +119,14 @@ export class Tooltip {
       this.setClose()
     } else {
       this.setShow()
+    }
+  }
+
+  setExternal(option: 'show' | 'hide' | null): void {
+    if (option === 'show') {
+      this.setShow()
+    } else {
+      this.setClose()
     }
   }
 
@@ -216,7 +240,11 @@ export class Tooltip {
   }
 
   set show(value: boolean) {
-    this._show = value
+    if (value) {
+      this.setShow()
+    } else {
+      this.setClose()
+    }
   }
 }
 

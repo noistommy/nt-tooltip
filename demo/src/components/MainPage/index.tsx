@@ -12,6 +12,7 @@ export default function MainPage() {
   const [position, setPosition] = useState('top');
   const [align, setAlign] = useState('center');
   const lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore at adipisci voluptates voluptatibus nemo amet deserunt doloremque labore! Quisquam, doloremque!'
+  const [show, setShow] = useState('hide');
 
   return (
     <div className="pb-10" style={{maxWidth: '780px', width: '100%', margin: '0 auto'}}>
@@ -23,8 +24,8 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
-                  <div className="be-button border" nt-tooltip="content: Tooltip Content;">
+              <div className="contents be flex center gap-4">
+                  <div className="be-button border" nt-tooltip={`content: Tooltip Content;`}>
                       Hover Me!
                   </div>
               </div>
@@ -46,7 +47,7 @@ export default function MainPage() {
         </div>
         <div className=''>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="content: Invert Theme; invert: true;">
                       Invert Theme
                   </div>
@@ -78,6 +79,9 @@ export default function MainPage() {
                   <div className="be-button border" nt-tooltip="content: click; trigger: click;">
                       click
                   </div>
+                  <div className="be-button border" tabIndex={0} nt-tooltip="content: focus; trigger: focus;">
+                      focus
+                  </div>
               </div>
           </div>
           <div className='be-segment border p-0'>
@@ -85,6 +89,32 @@ export default function MainPage() {
               language='jsx'
               theme=''
               code={Codes.trigger}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="detail mt-10">
+        <div className="header">
+          <div className="bold large">External Trigger</div>
+          <p>외부에서 툴팁을 표시 하고 숨길 수 있습니다. external 속성을 'show' 또는 'hide'로 설정 하면 됩니다.</p>
+        </div>
+        <div>
+          <div className="be-segment surface align-center">
+              <div className="contents be flex center gap-4">
+                  <button className="be-button border" nt-tooltip={`content: Show Tooltip by External Trigger!!!; external: ${show};`}>
+                      Click External Button!!
+                      <i className="icon right xi-arrow-right" />
+                  </button>
+                  <button className="be-button border icon" onClick={() => setShow(show === 'show' ? 'hide' : 'show')}>
+                    <i className={`icon ${show === 'show' ? 'xi-eye-off' : 'xi-eye'}`} />
+                  </button>
+              </div>
+          </div>
+          <div className='be-segment border p-0'>
+            <CodeBlock
+              language='jsx'
+              theme=''
+              code={Codes.external}
             />
           </div>
         </div>
@@ -123,7 +153,7 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="content: Top; pos: top;">
                       <i className="icon left xi-arrow-up" />
                       Top
@@ -159,7 +189,7 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center attached">
-              <div className="header be flex around">
+              <div className="header be flex around gap-4">
                 <div className='be-buttons'>
                   <label className="bold px-3 py-1">Position:</label>
                   <div className={`be-button border compact ${position === 'top' ? 'selected' : ''}`} onClick={() => setPosition('top')}>Top</div>
@@ -202,7 +232,7 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="content: Offset 10;">
                       Offset 10
                   </div>
@@ -258,7 +288,7 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="maxWidth: 150;">
                       Max width 150px
                       <span nt-target="true">
@@ -295,7 +325,7 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="textAlign: left;">
                       TextAlign left
                       <span nt-target="true">
@@ -335,9 +365,16 @@ export default function MainPage() {
         </div>
         <div>
           <div className="be-segment surface align-center">
-              <div className="contents">
+              <div className="contents be flex center gap-4">
                   <div className="be-button border" nt-tooltip="padding: 4;">
                       Padding 4
+                      <span nt-target="true">
+                        <div className='h5'>Padding 4</div>
+                        {lorem}
+                      </span>
+                  </div>
+                  <div className="be-button border" nt-tooltip="true">
+                      Padding 8 (default)
                       <span nt-target="true">
                         <div className='h5'>Padding 8</div>
                         {lorem}

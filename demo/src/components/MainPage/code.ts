@@ -23,11 +23,21 @@ export const invert = `
 
 export const trigger = `
 // @name: trigger
-// @type: 'hover' | 'click'
+// @type: 'hover' | 'click' | 'focus'
 // @default: 'hover'
 
 <Parent nt-tooltip="... trigger: hover;">Hover</Parent>
 <Parent nt-tooltip="... trigger: click;">Click</Parent>
+<Parent nt-tooltip="... trigger: focus;">Focus</Parent>
+`;
+
+export const external = `
+// @name: external
+// @type: 'show' | 'hide' | null
+// @default: null
+
+<Parent nt-tooltip="... external: show;">Show</Parent>
+<Parent nt-tooltip="... external: hide;">Hide</Parent>
 `;
 
 export const position = `
