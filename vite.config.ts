@@ -19,16 +19,23 @@ const commonConfig = {
   plugins: [react()],
 }
 
-const libFormats: LibraryFormats[] = ['es']
+const libFormats: LibraryFormats[] = ['es', 'umd', 'cjs']
 
 const libConfig: UserConfig = {
   ...commonConfig,
   build: {
     lib: {
       entry: resolve(__dirname, './src/tooltip.ts'),
-      name: 'nt-tooltip',
+      name: 'NtTooltip',
       formats: libFormats,
-      fileName: (format) => `nt-tooltip.${format}.js`
+      fileName: (format) => {
+        switch(format) {
+          case 'es': return 'nt-tooltip.js'
+          case 'umd': return 'nt-tooltip.umd.js'
+          case 'cjs': return 'nt-tooltip.cjs'
+          default: return `nt-tooltip.${format}.js`
+        }
+      }
     },
     rollupOptions: {
       external: reactExternal,
@@ -59,11 +66,11 @@ const demoConfig: UserConfig = {
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
   const executionMode = mode || "lib";
-  const modeValue = command === 'build' ? "production" : "development";
+  process.env.NODE_ENV = command === 'build' ? "production" : "development";
 
   if(executionMode === 'demo') {
-    return { ...demoConfig, modeValue }
+    return demoConfig
   } else {
-    return { ...libConfig, modeValue }
+    return libConfig
   }
 })

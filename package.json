@@ -1,7 +1,7 @@
 {
   "name": "react-nt-tooltip",
   "private": false,
-  "version": "1.2.1",
+  "version": "1.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode=demo",
@@ -12,12 +12,17 @@
     "preview": "vite preview",
     "docs": "rm -rf docs && cp -rf demo/dist docs"
   },
-  "main": "./dist/nt-tooltip.es.js",
+  "main": "./dist/nt-tooltip.cjs",
   "module": "./dist/nt-tooltip.es.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/nt-tooltip.umd.js",
+  "jsDelivr": "./dist/nt-tooltip.umd.js",
   "exports": {
     ".": {
       "import": "./dist/nt-tooltip.es.js",
-      "default": "./dist/nt-tooltip.es.js"
+      "require": "./dist/nt-tooltip.cjs",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/nt-tooltip.umd.js"
     },
     "./nt-tooltip.css": "./dist/nt-tooltip.css"
   },

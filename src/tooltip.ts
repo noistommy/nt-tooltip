@@ -19,6 +19,7 @@ export interface TooltipOptions {
   offset: number
   customClass: string
   external: 'show' | 'hide' | null
+  zIndex: string | null
 }
 
 export type TooltipOptionsInput = Partial<TooltipOptions>
@@ -38,6 +39,7 @@ export class Tooltip {
     offset: 10,
     customClass: '',
     external: null,
+    zIndex: null,
   }
 
   root: HTMLElement
@@ -163,6 +165,9 @@ export class Tooltip {
     this.tooltip.style.paddingBlock = this.options.padding + 'px'
     this.tooltip.style.paddingInline = (Number(this.options.padding) * 1.5) + 'px'
     this.tooltip.style.textAlign = this.options.textAlign
+    if (this.options.zIndex) {
+      this.tooltip.style.zIndex = this.options.zIndex
+    }
   }
 
   setPosition = (): void => {

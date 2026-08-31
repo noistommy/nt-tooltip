@@ -393,6 +393,52 @@ export default function MainPage() {
           </div>
         </div>
       </div>
+      <div className="detail mt-10">
+        <div className="header">
+          <div className="bold large">Z-Index</div>
+          <p>툴팁의 z-index를 설정합니다. 툴팁은 <div className="be-tag label" >body</div>태그의 마지막 자식으로 추가되며 레이어 계층의 최상의에 위치합니다. 다만 같은 계층의 다른 컨텐츠와의 충돌을 피하기 위해 사용자가 z-index 값을 직접 설정 할 수 있습니다<div className="be-tag label">기본값: 99999999</div></p>
+        </div>
+        <div>
+          <div className="be-segment surface align-center">
+              <div className="contents be flex center gap-4">
+                  <div className="be-button border" nt-tooltip="true">
+                      Default z-index
+                      <span nt-target="true">
+                        <div className='h5'>Default z-index</div>
+                        {lorem} 
+                      </span>
+                  </div>
+                  <div className="be-button border" nt-tooltip="zIndex: 1;">
+                      z-index: 1
+                      <span nt-target="true">
+                        <div className='h5'>z-index: 1</div>
+                        {lorem}
+                      </span>
+                  </div>
+                  <div className="be-button border" nt-tooltip="zIndex: 1000;">
+                      z-index: 1000
+                      <span nt-target="true">
+                        <div className='h5'>z-index: 1000</div>
+                        {lorem}
+                      </span>
+                  </div>
+                  <div className="be-button border" nt-tooltip="zIndex: 99999999;">
+                      z-index: 99999999
+                      <span nt-target="true">
+                        <div className='h5'>z-index: 99999999</div>
+                        {lorem}
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div className='be-segment border p-0'>
+            <CodeBlock
+              language='jsx'
+              code={Codes.zIndex}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import MainPage from './components/MainPage'
 import './App.scss'
 import { version } from '../../package.json'
 
-import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es.js'
+import {initTooltip, clearTooltip} from '../../dist/nt-tooltip'
 import '../../dist/nt-tooltip.css'
 
 

@@ -119,6 +119,16 @@ export const padding = `
 <Parent nt-tooltip="padding: 24;">24px Padding</Parent>
 `;
 
+export const zIndex = `
+// @name: zIndex
+// @type: number
+// @default: 99999999
+
+<Parent nt-tooltip="zIndex: 1;">1</Parent>
+<Parent nt-tooltip="zIndex: 1000;">1000</Parent>
+<Parent nt-tooltip="zIndex: 99999999;">99999999</Parent>
+`;
+
 export const usage = `
 // app.tsx
 import { initTooltip, clearTooltip } from "react-nt-tooltip";
