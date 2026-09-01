@@ -455,7 +455,7 @@ function GetStart() {
           <div className='be-segment border p-0'>
             <CodeBlock
               language='bash'
-              code={`npm install react-nt-tooltip`}
+              code={`npm install @noistommy/nt-tooltip`}
             />
           </div>
         </div>

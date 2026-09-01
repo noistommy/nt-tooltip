@@ -57,7 +57,7 @@ const libConfig: UserConfig = {
 const demoConfig: UserConfig = {
   ...commonConfig,
   root: "./demo",
-  base: process.env.NODE_ENV === 'production' ? '/react-nt-tooltip/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/nt-tooltip/' : '/',
   server: {
     port: 5911
   }

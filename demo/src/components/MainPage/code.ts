@@ -131,8 +131,8 @@ export const zIndex = `
 
 export const usage = `
 // app.tsx
-import { initTooltip, clearTooltip } from "react-nt-tooltip";
-import "react-nt-tooltip/tooltip.css";
+import { initTooltip, clearTooltip } from "@noistommy/nt-tooltip";
+import "@noistommy/nt-tooltip/nt-tooltip.css";
 
 
 function App() {
