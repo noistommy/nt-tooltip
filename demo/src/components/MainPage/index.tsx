@@ -17,6 +17,9 @@ export default function MainPage() {
   return (
     <div className="pb-10" style={{maxWidth: '780px', width: '100%', margin: '0 auto'}}>
       <GetStart />
+      
+      <hr className="be hr mt-10" />
+      
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Base</div>
