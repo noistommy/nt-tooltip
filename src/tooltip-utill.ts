@@ -1,6 +1,4 @@
-import type { TooltipOptionsInput } from './tooltip'
-
-type ParsedValue = string | number | boolean | Record<string, unknown> | unknown[]
+import type { ParsedValue, TooltipOptionsInput } from './types'
 
 function camelize(str: string): string {
   // '-' 뒤에 오는 소문자(a-z)를 찾아 대문자로 치환하고 하이픈을 제거합니다.

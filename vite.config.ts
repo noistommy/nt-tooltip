@@ -1,4 +1,5 @@
 import { defineConfig, type UserConfig, type LibraryFormats } from 'vite'
+import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
@@ -16,13 +17,19 @@ const commonConfig = {
   optimizeDeps: {
     include: ['react/jsx-runtime'],
   },
-  plugins: [react()],
+  
 }
 
 const libFormats: LibraryFormats[] = ['es', 'umd', 'cjs']
 
 const libConfig: UserConfig = {
   ...commonConfig,
+  plugins: [dts({
+    include: ['src'],
+    outDirs: 'dist',
+    tsconfigPath: './tsconfig.app.json',
+    insertTypesEntry: true
+  })],
   build: {
     lib: {
       entry: resolve(__dirname, './src/tooltip.ts'),
@@ -30,7 +37,7 @@ const libConfig: UserConfig = {
       formats: libFormats,
       fileName: (format) => {
         switch(format) {
-          case 'es': return 'nt-tooltip.js'
+          case 'es': return 'nt-tooltip.es.js'
           case 'umd': return 'nt-tooltip.umd.js'
           case 'cjs': return 'nt-tooltip.cjs'
           default: return `nt-tooltip.${format}.js`
@@ -56,6 +63,7 @@ const libConfig: UserConfig = {
 
 const demoConfig: UserConfig = {
   ...commonConfig,
+  plugins: [react()],
   root: "./demo",
   base: process.env.NODE_ENV === 'production' ? '/nt-tooltip/' : '/',
   server: {

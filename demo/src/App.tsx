@@ -4,8 +4,11 @@ import MainPage from './components/MainPage'
 import './App.scss'
 import { version } from '../../package.json'
 
-import {initTooltip, clearTooltip} from '../../dist/nt-tooltip'
+import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es'
 import '../../dist/nt-tooltip.css'
+
+import { Souple } from '@noistommy/souple'
+import '@noistommy/souple/souple.css'
 
 
 function Header() {
@@ -17,7 +20,8 @@ function Header() {
             position: 'static',
             top: '0',
             left: '50%',
-            textAlign: 'center'
+            textAlign: 'center',
+            zIndex: 9999
           }}
         >Welcome <span className="bold px-2">NT Tooltip</span>!!</div>
       </div>
@@ -81,11 +85,11 @@ function Nav() {
         <div className="be-button small" nt-tooltip="pos: bottom-center">
           <div nt-target="true">
             <i className="xi-github"></i>
-            <span className='pl-4'>noistommy/react-nt-tooltip</span>
+            <span className='pl-4'>@noistommy/nt-tooltip</span>
           </div>
           <i className="icon left xi-github"></i>
           Github
-          <a href="https://github.com/noistommy/react-nt-tooltip.git" className="link" target="_blank"></a>
+          <a href="https://github.com/noistommy/nt-tooltip.git" className="link" target="_blank"></a>
         </div>
       </li>
     </nav>
@@ -103,6 +107,10 @@ function App() {
 
   return (
     <>
+      <Souple currentDevice="desktop">
+        <Souple.Control />
+        <Souple.Viewport />
+      </Souple>
       <Header />
       <MainPage />
       <Cabinet />
