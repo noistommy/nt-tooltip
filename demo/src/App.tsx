@@ -30,7 +30,7 @@ function Header() {
         NT Tooltip
         <span className="be-tag label round mx-2">v {version}</span>
          is a user-defined module for 
-        <span className="be-tag lightblue label ml-2 mr-2">React</span>
+        <span className="be-tag yellow label ml-2 mr-2">All of JS base</span>
       </div>
       <div className='main-wrapper'>
         <Nav />

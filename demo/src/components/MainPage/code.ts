@@ -146,3 +146,16 @@ function App() {
 }
 
 `
+export const usage_vue = `
+// app.vue
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+import { initTooltip, clearTooltip } from "@noistommy/nt-tooltip";
+import "@noistommy/nt-tooltip/nt-tooltip.css";
+
+onMounted(() => initTooltip())
+onUnmounted(() => clearTooltip())
+
+</script>
+
+`

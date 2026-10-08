@@ -2,7 +2,7 @@
   "name": "@noistommy/nt-tooltip",
   "description": "NT Tooltip for Javascript",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite --mode=demo",

@@ -4,6 +4,12 @@ $ns: nt;
   --tooltip-base-bgc: #f2f2f2;
   --tooltip-base-txt: #3d3d3d;
   --nt-max-z-index: 99999999;
+
+  --tooltip-base-padding: 8px;
+  --tooltip-arrow-size: 10px;
+  --tooltip-arrow-size-h: var(--tooltip-arrow-size);
+  --tooltip-arrow-size-v: calc(var(--tooltip-arrow-size) * 0.6);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +33,7 @@ $ns: nt;
   &-tooltip {
     width: max-content;
     max-width: 250px;
-    padding: 8px;
+    padding: var(--tooltip-base-padding);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -39,26 +45,26 @@ $ns: nt;
     color: var(--tooltip-base-txt);
     
     &.small {
-      padding: 4px;
+      padding: calc(var(--tooltip-base-padding) * 0.5);
       font-size: .8em;
     }
     &:after {
       content: '';
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: var(--tooltip-arrow-size);
+      height: var(--tooltip-arrow-size);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       background-color: inherit;
       margin: -1px;
     }
     
     &:where([class*='top'], [class*='bottom'])::after {
-      width: 10px;
-      height: 6px;
+      width: var(--tooltip-arrow-size-h);
+      height: var(--tooltip-arrow-size-v);
     }
     &:where([class*='left'], [class*='right'])::after {
-      width: 6px;
-      height: 10px;
+      width: var(--tooltip-arrow-size-v);
+      height: var(--tooltip-arrow-size-h);
     }
     &.invert,
     &.theme-dark {

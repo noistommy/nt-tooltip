@@ -149,7 +149,7 @@ export class Tooltip {
         this.options.selector,
         this.options.invert ? 'invert' : null,
         this.options.size,
-        this.options.customClass ? ` ${this.options.customClass}` : null,
+        this.options.customClass ? `${this.options.customClass}`.trim() : null,
       ].filter(Boolean) as string[])
     )
     this.tooltip.style.maxWidth = this.options.maxWidth + 'px'

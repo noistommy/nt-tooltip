@@ -77,7 +77,7 @@ export default function MainPage() {
                   <div className="be-button border" nt-tooltip="content: hover; trigger: hover;">
                       hover
                   </div>
-                  <div className="be-button border" nt-tooltip="content: click; trigger: click;">
+                  <div className="be-button border" nt-tooltip="content: click; trigger: click; customClass: test;">
                       click
                   </div>
                   <div className="be-button border" tabIndex={0} nt-tooltip="content: focus; trigger: focus;">
@@ -399,7 +399,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Z-Index</div>
-          <p>툴팁의 z-index를 설정합니다. 툴팁은 <div className="be-tag label" >body</div>태그의 마지막 자식으로 추가되며 레이어 계층의 최상의에 위치합니다. 다만 같은 계층의 다른 컨텐츠와의 충돌을 피하기 위해 사용자가 z-index 값을 직접 설정 할 수 있습니다<div className="be-tag label">기본값: 99999999</div></p>
+          <p>툴팁의 z-index를 설정합니다. 툴팁은 <span className="be-tag label" >body</span>태그의 마지막 자식으로 추가되며 레이어 계층의 최상의에 위치합니다. 다만 같은 계층의 다른 컨텐츠와의 충돌을 피하기 위해 사용자가 z-index 값을 직접 설정 할 수 있습니다<span className="be-tag label">기본값: 99999999</span></p>
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -411,7 +411,7 @@ export default function MainPage() {
                         {lorem} 
                       </span>
                   </div>
-                  <div className="be-button border" nt-tooltip="zIndex: 1;">
+                  <div className="be-button border" nt-tooltip="zIndex: 1; trigger: click;">
                       z-index: 1
                       <span nt-target="true">
                         <div className='h5'>z-index: 1</div>
@@ -470,16 +470,25 @@ function GetStart() {
           <p>컴포넌트 적용 시 반드시 nt-tooltip 속성이 children에 상속되도록 랜더링 해야 합니다.(html은 바로 적용 가능함)</p>
         </div>
         <div>
+          <h5 className="m-0">Use React</h5>
           <div className='be-segment border p-0'>
             <CodeBlock
-              language='jsx'
+              language='tsx'
               code={Codes.usage}
             />
           </div>
+          <h5 className="m-0">Use Vue</h5>
           <div className='be-segment border p-0'>
             <CodeBlock
-              language='jsx'
-              code={`// in component.tsx \n<Parent nt-tooltip="{... tooltip options}"> content</Parent>`}
+              language='vue'
+              code={Codes.usage_vue}
+            />
+          </div>
+          <h5 className="m-0">Set In Component</h5>
+          <div className='be-segment border p-0'>
+            <CodeBlock
+              language='tsx'
+              code={`// in component\n<Parent nt-tooltip="{... tooltip options}"> content</Parent>`}
             />
           </div>
         </div>
