@@ -1,0 +1,145 @@
+# @noistommy/nt-tooltip
+
+> Framework-independent tooltip module for the browser (documented against v1.0.6).
+  Add the custom HTML attribute `nt-tooltip="key: value; key: value;"` to any element,
+  call `initTooltip()` once, and a tooltip appears on hover, focus or click. 
+  Works with plain HTML, React, or any framework. React is NOT required.
+
+## Quick start
+
+```bash
+npm install @noistommy/nt-tooltip
+```
+
+```js
+import { initTooltip, clearTooltip } from '@noistommy/nt-tooltip'
+import '@noistommy/nt-tooltip/nt-tooltip.css' // required: tooltip is unstyled without it
+
+initTooltip() // call once, after the DOM is ready
+// clearTooltip() // call on teardown / unmount
+```
+
+```html
+<button nt-tooltip="content: Hello; pos: bottom-center;">Hover me</button>
+```
+
+React:
+
+```jsx
+import { useEffect } from 'react'
+import { initTooltip, clearTooltip } from '@noistommy/nt-tooltip'
+import '@noistommy/nt-tooltip/nt-tooltip.css'
+
+useEffect(() => { initTooltip(); return () => clearTooltip() }, [])
+// <button nt-tooltip="content: Hello;">Hover me</button>
+```
+
+Vue:
+
+```vue
+import { onMounted, onUnmounted } from 'vue'
+import { initTooltip, clearTooltip } from '@noistommy/nt-tooltip'
+import '@noistommy/nt-tooltip/nt-tooltip.css'
+
+onMounted(() => initTooltip())
+onUnmounted(() => clearTooltip())
+
+// <button nt-tooltip="content: Hello;">Hover me</button>
+```
+
+CommonJS: `const { initTooltip } = require('@noistommy/nt-tooltip'); require('@noistommy/nt-tooltip/nt-tooltip.css')`
+
+Browser via CDN (UMD, global `NtTooltip`; also load the CSS yourself):
+
+```html
+<script src="https://unpkg.com/@noistommy/nt-tooltip"></script>
+<script>document.addEventListener('DOMContentLoaded', () => NtTooltip.initTooltip())</script>
+```
+
+## Attribute syntax (read this before writing options)
+
+- Format: `nt-tooltip="key: value; key: value;"`. Pairs are split on `;`, each pair on the FIRST `:`.
+- Keys may be kebab-case or camelCase (`max-width` and `maxWidth` are the same).
+- Values are auto-typed: `true`/`false` become booleans, numeric strings become numbers, `{...}`/`[...]` are parsed as JSON, everything else is a string.
+- Do NOT quote values. `pos: 'right-start'` is wrong (the quotes become part of the value and break positioning). Write `pos: right-start`.
+- `content` cannot contain `;` and is inserted as HTML (`innerHTML`). Never put untrusted user input in it.
+- Unknown keys and typos are silently ignored. There is no error.
+
+## Options
+
+| key | type | default | notes |
+|---|---|---|---|
+| content | string | `''` | Tooltip body (HTML). If empty, the innerHTML of a child `[nt-target]` element is used. |
+| pos | string | `top-center` | `direction-align`. direction: `top` `bottom` `left` `right`. align: `start` `center` `end`. Flips to the opposite side automatically when there is not enough room. |
+| trigger | `hover` \| `focus` \| `click` | `hover` | `click` toggles on each click. It does not close on outside click. |
+| invert | boolean | `true` | `true` shows the opposite of the page color scheme (dark tooltip on light). `false` follows it. |
+| size | `small` \| `large` \| null | `null` | `small` shrinks the font. `large` has no built-in styles, it only adds a `large` class for your own CSS. |
+| padding | number (px) | `8` | Vertical padding. Horizontal padding is 1.5x this value. Applied as inline style, so it overrides the CSS variable `--tooltip-base-padding`. |
+| maxWidth | number (px) | `250` | |
+| textAlign | string | `center` | CSS `text-align` (`left` `center` `right`). |
+| offset | number (px) | `10` | Gap between the element and the tooltip. |
+| customClass | string | `''` | Extra CSS class on the tooltip. Use a SINGLE class name only, see Known issues. |
+| external | `show` \| `hide` \| null | `null` | Controls visibility from code, see below. |
+| zIndex | string \| null | `null` | Overrides the CSS variable `--nt-max-z-index` (99999999). |
+| selector | string | `nt-tooltip` | CSS class applied to the tooltip element. Keep the default, the bundled CSS targets `.nt-tooltip`. |
+
+There is no `theme` option. Use `invert` and the CSS variables below. The `show` key exists in the type but has no effect from the attribute. Use `external`.
+
+## Common recipes
+
+HTML content via child element (the child is hidden by the bundled CSS):
+
+```html
+<button nt-tooltip="pos: bottom-center;">
+  Rich
+  <div nt-target="true"><strong>Title</strong><br>Any HTML</div>
+</button>
+```
+
+Other triggers:
+
+```html
+<input nt-tooltip="content: Required field; trigger: focus; pos: bottom-start;">
+<button nt-tooltip="content: Toggled; trigger: click;">Click</button>
+```
+
+Control from code with `external` (the element gets no hover/click listeners):
+
+```js
+const el = document.querySelector('#target') // has nt-tooltip="content: Hi; external: hide;"
+el.setAttribute('nt-tooltip', 'content: Hi; external: show;') // show
+el.setAttribute('nt-tooltip', 'content: Hi; external: hide;') // hide
+```
+
+## Behavior
+
+- `initTooltip()` scans `document.body`, then watches it with a MutationObserver. Elements added later, removed elements, and changes to the `nt-tooltip` attribute are handled automatically. No re-init is needed.
+- Calling `initTooltip()` again resets everything (it calls `clearTooltip()` first). It also logs the active count to the console.
+- The tooltip is a `div.nt-tooltip` appended to `document.body` with `position: fixed`. It gets the classes `invert`, `small`/`large`, the resolved placement (for example `top-center`), and `show` (added on the next animation frame). It is removed from the DOM when closed.
+- Position updates on scroll and resize while visible.
+- Changing the content of a `[nt-target]` child does not trigger an update. Re-set the `nt-tooltip` attribute instead.
+
+## Styling
+
+CSS variables on `:root`: `--tooltip-base-bgc` (background), `--tooltip-base-txt` (text), `--tooltip-arrow-size` (arrow, default `10px`), `--nt-max-z-index`. Override them on `:root`, not on a descendant. Dark mode follows `prefers-color-scheme`, or force it with a `light` or `dark` substring in the `class` of `<html>`.
+
+## Programmatic API (TypeScript types included)
+
+```ts
+import { Tooltip, initTooltip, clearTooltip } from '@noistommy/nt-tooltip'
+import type {
+  TooltipOptions, TooltipOptionsInput, TooltipTrigger, TooltipDirection, TooltipAlign,
+} from '@noistommy/nt-tooltip'
+
+const t = new Tooltip(element, { content: 'Hi', pos: 'right-center' })
+t.update({ content: 'Changed' }) // merges options, re-renders if visible
+t.show = true                    // setter shows or hides
+t.destroy()                      // remove listeners and close
+```
+
+Most users only need `initTooltip` and `clearTooltip` plus the attribute.
+
+## Known issues (remove each line once fixed)
+
+- `customClass`: a single class name works. A value with several space-separated classes (`foo bar`) throws `InvalidCharacterError` when the tooltip opens and the tooltip is not shown. Use one class only.
+- `size: large` has no visual effect without your own CSS.

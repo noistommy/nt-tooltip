@@ -1,8 +1,8 @@
 {
   "name": "@noistommy/nt-tooltip",
-  "description": "NT Tooltip for Javascript",
+  "description": "Framework-independent tooltip configured with a single HTML attribute (nt-tooltip). Supports hover, focus and click triggers, auto-flipping placement, HTML content, and ships with TypeScript types.",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "scripts": {
     "dev": "vite --mode=demo",
@@ -29,7 +29,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "llms.txt"
   ],
   "bugs": {
     "url": "https://github.com/noistommy/nt-tooltip/issues"
@@ -38,8 +39,12 @@
   "keywords": [
     "typescript",
     "javascript",
-    "@noistommy",
-    "tooltip"
+    "tooltip",
+    "vanilla-js",
+    "html-attribute",
+    "gramework-agnotic",
+    "popover",
+    "hint"
   ],
   "peerDependencies": {
     "react": "^19.2.8",
