@@ -129,7 +129,21 @@ export const zIndex = `
 <Parent nt-tooltip="zIndex: 99999999;">99999999</Parent>
 `;
 
-export const usage = `
+const npm = `
+npm install @noistommy/nt-tooltip
+`
+
+const cdn = `
+<!-- unpkg -->
+<script src="https://unpkg.com/@noistommy/nt-tooltip"></script>
+<link href="https://unpkg.com/@noistommy/nt-tooltip/dist/nt-tooltip.css"></link>
+
+<!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip"></script>
+<link href="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip/dist/nt-tooltip.css"></link>
+`
+
+const usage = `
 // app.tsx
 import { initTooltip, clearTooltip } from "@noistommy/nt-tooltip";
 import "@noistommy/nt-tooltip/nt-tooltip.css";
@@ -146,7 +160,7 @@ function App() {
 }
 
 `
-export const usage_vue = `
+const usage_vue = `
 // app.vue
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
@@ -159,3 +173,41 @@ onUnmounted(() => clearTooltip())
 </script>
 
 `
+const cjs = `
+const ntTooltip = require("@noistommy/nt-tooltip");
+require("@noistommy/nt-tooltip/nt-tooltip.css");
+
+// after mounted Dom
+ntTooltip.initTooltip();
+`
+const umd = `
+// loaded nt-tooltip.umd.js file from CDN(unpkg, jsdelivr)
+
+document.addEventListener("DOMContentLoaded", () => {
+  NtTooltip.initTooltip();
+});
+`
+export const usage_component = `
+// in component
+// HTML Attribute in JSX || .vue || html ...
+
+<div nt-tooltip="{ ...tooltip options }"></div>
+// or
+<div nt-tooltip="{ ...tooltip options }">
+  <span nt-target="true">
+    Contents
+  </span>
+</div>
+
+`
+
+export const install = {
+  npm:  { name: 'npm', lang: 'bash', code: npm },
+  cdn:  { name: 'cdn', lang: 'html', code: cdn },
+}
+export const initial = {
+  react: { name: 'react(es)', lang: 'tsx', code: usage },
+  vue: { name: 'vue(es)', lang: 'vue', code: usage_vue },
+  cjs: { name: 'cjs', lang: 'javascript', code: cjs },
+  umd: { name: 'udm', lang: 'javascript', code: umd },
+}

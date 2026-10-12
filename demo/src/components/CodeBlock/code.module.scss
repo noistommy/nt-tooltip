@@ -1,3 +1,29 @@
+
+:root {
+  --tabs-txt: #333;
+  --tabs-bg: #fff;
+  --tabs-brd: #d6d6d6;
+  --tabs-active: #5178af;
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([class*="light"])  {
+    --tabs-txt: #fff;
+    --tabs-bg: #333;
+    --tabs-brd: #464646;
+    --tabs-active: #8CC5CE;
+  }
+}
+
+:root {
+  [class*="dark"] {
+    --tabs-txt: #fff;
+    --tabs-bg: #333;
+    --tabs-brd: #464646;
+    --tabs-active-txt: #8CC5CE;
+  }
+}
 .container {
   padding: 0 !important;
   opacity: 0.8;
@@ -7,5 +33,51 @@
       padding: 0 !important;
       margin: 0 !important;
     }
+  }
+}
+.Tabs {
+  border: 1px solid var(--tabs-brd);
+  border-radius: 8px;
+  margin-block: 8px;
+  overflow: hidden;
+  transition: all 250ms ease;
+  .TabMenu {
+    display: flex;
+    flex-wrap: noWrap;
+    overflow-x: auto;
+    padding-inline: 8px;
+    border-bottom: 1px solid var(--tabs-brd);
+    .TabItem {
+      flex-shrink: 0;
+      cursor: pointer;
+      padding: 8px 12px;
+      font-weight: 600;
+      opacity: 0.5;
+      color: #808080;
+      &:hover {
+        color: var(--tabs-txt);
+      }
+      &.Actived {
+        position: relative;
+        color: var(--tabs-active);
+        opacity: 1;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: var(--tabs-active);
+          z-index: 100;
+        }
+      }
+    }
+  }
+  .container {
+    
+  }
+  pre {
+    border-radius: 0 !important;
   }
 }

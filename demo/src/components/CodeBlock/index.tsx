@@ -72,3 +72,34 @@ export default function CodeBlock({
     </div>
   );
 }
+
+type TabItem = {
+  name: string
+  lang: string
+  code: string
+}
+
+type TabKey = string
+type TabList = Record<TabKey, TabItem>
+
+export function TabCodeBlock({
+  tabs = {},
+}: {
+  tabs: TabList
+}) {
+
+  const [actived, setActived] = useState<TabKey>(Object.keys(tabs)[0])
+
+  return (
+    <div className={codeStyle.Tabs}>
+      <div className={codeStyle.TabMenu}>
+        {Object.entries(tabs).map(([key, value]) => (
+          <div key={key} className={`${codeStyle.TabItem} ${actived === key ? codeStyle.Actived : ''}`} onClick={() => setActived(key)}>{value.name}</div>
+        ))}
+      </div>
+      <div className="tab-contents">
+        <CodeBlock code={tabs[actived].code} language={tabs[actived].lang} />
+      </div>
+    </div>
+  )
+}

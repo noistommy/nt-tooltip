@@ -1,12 +1,15 @@
 
 import {useState} from 'react';
 import CodeBlock from '../CodeBlock';
+import {TabCodeBlock} from '../CodeBlock';
 import * as Codes from './code';
 
 // const codeList = {
 //   base: '<div nt-tooltip="content: Tooltip Content;">...</div>',
 //   invert: ``
 // }
+
+
 
 export default function MainPage() {
   const [position, setPosition] = useState('top');
@@ -411,7 +414,7 @@ export default function MainPage() {
                         {lorem} 
                       </span>
                   </div>
-                  <div className="be-button border" nt-tooltip="zIndex: 1; trigger: click;">
+                  <div className="be-button border" nt-tooltip="zIndex: 1;">
                       z-index: 1
                       <span nt-target="true">
                         <div className='h5'>z-index: 1</div>
@@ -455,40 +458,30 @@ function GetStart() {
           <p></p>
         </div>
         <div>
-          <div className='be-segment border p-0'>
-            <CodeBlock
-              language='bash'
-              code={`npm install @noistommy/nt-tooltip`}
-            />
-          </div>
+          <TabCodeBlock tabs={Codes.install} />
         </div>
       </div>
       <div className="detail mt-10">
         <div className="header">
-          <div className="bold large">Usage</div>
-          <p>전역에서 실행 하여 프로젝트 전체 영역에서 툴팁을 사용 할 수 있습니다.</p>
-          <p>컴포넌트 적용 시 반드시 nt-tooltip 속성이 children에 상속되도록 랜더링 해야 합니다.(html은 바로 적용 가능함)</p>
+          <div className="bold large">Registration</div>
+          <p>전역에서 실행하여 프로젝트 전체 영역에서 툴팁을 사용 할 수 있습니다.</p>
         </div>
         <div>
-          <h5 className="m-0">Use React</h5>
+          <TabCodeBlock tabs={Codes.initial} />
+        </div>
+
+      </div>
+      <div className="detail mt-10">
+        <div className="header">
+          <div className="bold large">Usage</div>
+          <p>전역에서 실행 하여 프로젝트 전체 영역에서 툴팁을 사용 할 수 있습니다.<br/>
+           React, Vue 컴포넌트 속성으로  적용 시 반드시 nt-tooltip 속성이 children에 상속되도록 랜더링 해야 합니다.(html은 바로 적용 가능함)</p>
+        </div>
+        <div>
           <div className='be-segment border p-0'>
             <CodeBlock
               language='tsx'
-              code={Codes.usage}
-            />
-          </div>
-          <h5 className="m-0">Use Vue</h5>
-          <div className='be-segment border p-0'>
-            <CodeBlock
-              language='vue'
-              code={Codes.usage_vue}
-            />
-          </div>
-          <h5 className="m-0">Set In Component</h5>
-          <div className='be-segment border p-0'>
-            <CodeBlock
-              language='tsx'
-              code={`// in component\n<Parent nt-tooltip="{... tooltip options}"> content</Parent>`}
+              code={Codes.usage_component}
             />
           </div>
         </div>
