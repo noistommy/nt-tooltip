@@ -33,8 +33,11 @@ npm install @noistommy/nt-tooltip
 ```html
 <!-- unpkg -->
 <script src="https://unpkg.com/@noistommy/nt-tooltip"></script>
+<link href="https://unpkg.com/@noistommy/nt-tooltip/dist/nt-tooltip.css"></link>
+
 <!-- jsdelivr -->
 <script src="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip"></script>
+<link href="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip/dist/nt-tooltip.css"></link>
 ```
 
 ---

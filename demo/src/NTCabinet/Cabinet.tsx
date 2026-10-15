@@ -79,7 +79,7 @@ function Cabinet () {
       <hr className="be hr" />
       <div className="copylight mt-4 be-tags attached">
         <span className="be-tag label deepblue">Copyright</span>
-        <span className="be-tag label primary-light">© 2016-present Kim Minyoung</span>
+        <span className="be-tag label primary-light">© {new Date().getFullYear()} Kim Minyoung</span>
         <span className="be-tag pointing left secondary">noistommy</span>
       </div>
     </footer>
