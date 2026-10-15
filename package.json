@@ -2,7 +2,7 @@
   "name": "@noistommy/nt-tooltip",
   "description": "Framework-independent tooltip configured with a single HTML attribute (nt-tooltip). Supports hover, focus and click triggers, auto-flipping placement, HTML content, and ships with TypeScript types.",
   "private": false,
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "scripts": {
     "dev": "vite --mode=demo",
@@ -35,14 +35,14 @@
   "bugs": {
     "url": "https://github.com/noistommy/nt-tooltip/issues"
   },
-  "homepage": "https://github.com/noistommy/nt-tooltip#readme",
+  "homepage": "https://noistommy.github.io/nt-tooltip/",
   "keywords": [
     "typescript",
     "javascript",
     "tooltip",
     "vanilla-js",
     "html-attribute",
-    "gramework-agnotic",
+    "framework-agnotic",
     "popover",
     "hint"
   ],
