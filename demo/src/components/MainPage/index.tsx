@@ -183,6 +183,61 @@ export default function MainPage() {
       </div>
       <div className="detail mt-10">
         <div className="header">
+          <div className="bold large">Motion</div>
+          <p>Motion 속성은 Tooltip이 등장할때 애니메이션 모션을 설정합니다. 기본적으로 <code className="be-tag label">scale</code> 모션을 기본값으로 적용 합니다. 사용자는 기본값 외 <code className="be-tag label">slide</code> 모션을 지정 할 수 있습니다.</p>
+        </div>
+        <div>
+          <div className="be-segment surface align-center">
+              <div className="contents be flex  gap-4">
+                <h5>Scale</h5>
+                <div className="be-button border" nt-tooltip="content: Top; pos: top; ">
+                    <i className="icon left xi-arrow-up" />
+                    Scale-Up
+                </div>
+                <div className="be-button border" nt-tooltip="content: Bottom; pos: bottom;">
+                    <i className="icon left xi-arrow-down" />
+                    Scale-Down
+                </div>
+                <div className="be-button border" nt-tooltip="content: Left; pos: left;">
+                    <i className="icon left xi-arrow-left" />
+                    Scale-Left
+                </div>
+                <div className="be-button border" nt-tooltip="content: Right; pos: right;">
+                    <i className="icon left xi-arrow-right" />
+                    Scale-Right
+                </div>
+              </div>
+              <hr className="be hr" />
+              <div className="contents be flex  gap-4">
+                <h5>Slide</h5>
+                <div className="be-button border" nt-tooltip="content: Top; pos: top; motion: slide;">
+                    <i className="icon left xi-arrow-up" />
+                    Slide-UP
+                </div>
+                <div className="be-button border" nt-tooltip="content: Bottom; pos: bottom; motion: slide">
+                    <i className="icon left xi-arrow-down" />
+                    Slide-Down
+                </div>
+                <div className="be-button border" nt-tooltip="content: Left; pos: left; motion: slide">
+                    <i className="icon left xi-arrow-left" />
+                    Slide-Left
+                </div>
+                <div className="be-button border" nt-tooltip="content: Right; pos: right; motion: slide">
+                    <i className="icon left xi-arrow-right" />
+                    Slide-Right
+                </div>
+              </div>
+          </div>
+          <div className='be-segment border p-0'>
+            <CodeBlock
+              language='jsx'
+              code={Codes.motion}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="detail mt-10">
+        <div className="header">
           <div className="bold large">Position + Aligns</div>
           <p>pos 속성은 기본적으로 <code className="be-tag label">'position'-'alignment'</code>  구조로 적용 합니다. 아래 예제로 테스트 할 수 있습니다. </p>
           

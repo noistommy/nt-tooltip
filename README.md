@@ -129,3 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
 - **external**: _'show' | 'hide' | null_ ▶︎ `null`
 - **zIndex**: _number | null_ ▶︎ `null`
   Default css value: `--nt-max-z-index: 99999999` 
+- **motion**: _'scale' | 'slide'_ ▶︎ `scale`

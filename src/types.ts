@@ -16,7 +16,8 @@ export interface TooltipOptions {
   offset: number
   customClass: string
   external: 'show' | 'hide' | null
-  zIndex: string | null
+  zIndex: string | null,
+  motion: 'scale' | 'slide'
 }
 
 export type TooltipOptionsInput = Partial<TooltipOptions>

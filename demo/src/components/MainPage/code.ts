@@ -51,6 +51,15 @@ export const position = `
 <Parent nt-tooltip="pos: right;">Right</Parent>
 `;
 
+export const motion = `
+// @name: motion
+// @type: 'scale' | 'slide'
+// @default: 'scale'
+
+<Parent nt-tooltip="motion: scale;">Motion Scale</Parent>
+<Parent nt-tooltip="motion: slide;">Motion Slide</Parent>
+`;
+
 export const aligns = `
 // @name: pos
 // @type: 'top' | 'bottom' | 'left' | 'right' | 'top-start' | 'top-center' | 'top-end' | 'bottom-start' | 'bottom-center' | 'bottom-end' | 'left-start' | 'left-center' | 'left-end' | 'right-start' | 'right-center' | 'right-end'

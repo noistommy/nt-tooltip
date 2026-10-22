@@ -1,5 +1,7 @@
 $ns: nt;
 
+$duration: 0.15s;
+
 :root {
   --tooltip-base-bgc: #f2f2f2;
   --tooltip-base-txt: #3d3d3d;
@@ -71,21 +73,34 @@ $ns: nt;
       background-color: var(--tooltip-base-txt);
       color: var(--tooltip-base-bgc);
     }
-    &[class*='top']::after {
-      top: 100%;
+    &[class*='top'] {
+      transform-origin: center bottom;
+      &:after {
+        top: 100%;
+      }
     }
-    &[class*='bottom']::after {
-      bottom: 100%;
-      clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    }
-    &[class*='left']::after {
-      left: 100%;
-      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    &[class*='bottom'] {
+      transform-origin: center top;
+      &:after {
+        bottom: 100%;
+        clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      }
     }
     
-    &[class*='right']::after {
-      right: 100%;
-      clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    &[class*='left'] {
+      transform-origin: right center;
+      &:after {
+        left: 100%;
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+      }
+    }
+    
+    &[class*='right'] {
+      transform-origin: left center;
+      &:after {
+        right: 100%;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      }
     }
     
     &.top-start::after,
@@ -118,9 +133,24 @@ $ns: nt;
       /* transform: translateY(-100%); */
     }
     &.show {
-      animation:  fadein 0.3s ease, scale 0.3s ease;
-      .slide {
-        animation:  fadein 0.3s ease, slide-up 0.3s ease;
+      animation-duration: $duration;
+      animation-timing-function: ease-in-out;
+      &.scale {
+        animation-name: fadein, scaleX;
+      }
+      &.slide {
+        &[class*='top'] {
+          animation-name: fadein, slide-up;
+        }
+        &[class*='bottom'] {
+          animation-name:  fadein, slide-down;
+        }
+        &[class*='left'] {
+          animation-name: fadein, slide-left;
+        }
+        &[class*='right'] {
+          animation-name: fadein, slide-right;
+        }
       }
     }
   }
@@ -158,31 +188,47 @@ $ns: nt;
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0.5;
   }
 }
 @keyframes scaleX {
   0% {
-    scaleX: 0;
+    transform: scale(0.95);
   }
   100% {
-    scaleX: 1;
+    transform: scale(1);
   }
 }
 @keyframes slide-up {
   0% {
-    translate: 0 10px;
+    transform: translateY(10px);
   }
   100% {
-    translate: 0 0;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
 @keyframes slide-down {
   0% {
-    translate: 0 -10px;
+    transform: translateY(-10px);
   }
   100% {
-    translate: 0 0;
+    transform: translateY(0);
   }
 }

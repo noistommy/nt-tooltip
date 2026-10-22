@@ -4,8 +4,11 @@ import MainPage from './components/MainPage'
 import './App.scss'
 import { version } from '../../package.json'
 
-import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es'
-import '../../dist/nt-tooltip.css'
+// import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es'
+// import '../../dist/nt-tooltip.css'
+
+import {initTooltip, clearTooltip} from '../../src/tooltip.ts'
+import '../../src/tooltip.scss'
 
 import { Souple } from '@noistommy/souple'
 import '@noistommy/souple/souple.css'

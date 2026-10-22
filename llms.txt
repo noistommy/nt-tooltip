@@ -81,6 +81,7 @@ Browser via CDN (UMD, global `NtTooltip`; also load the CSS yourself):
 | customClass | string | `''` | Extra CSS class on the tooltip. Use a SINGLE class name only, see Known issues. |
 | external | `show` \| `hide` \| null | `null` | Controls visibility from code, see below. |
 | zIndex | string \| null | `null` | Overrides the CSS variable `--nt-max-z-index` (99999999). |
+| motion | 'scale' | 'slide' \| `scale` | Set tooltip motion. |
 | selector | string | `nt-tooltip` | CSS class applied to the tooltip element. Keep the default, the bundled CSS targets `.nt-tooltip`. |
 
 There is no `theme` option. Use `invert` and the CSS variables below. The `show` key exists in the type but has no effect from the attribute. Use `external`.

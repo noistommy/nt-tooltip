@@ -31,6 +31,7 @@ export class Tooltip {
     customClass: '',
     external: null,
     zIndex: null,
+    motion: 'scale' // scale | slide
   }
 
   root: HTMLElement
@@ -149,6 +150,7 @@ export class Tooltip {
         this.options.selector,
         this.options.invert ? 'invert' : null,
         this.options.size,
+        this.options.motion,
         this.options.customClass ? `${this.options.customClass}`.trim() : null,
       ].filter(Boolean) as string[])
     )
