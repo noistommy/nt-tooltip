@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import Cabinet from './NTCabinet/Cabinet.tsx'
 import MainPage from './components/MainPage'
 import './App.scss'
 import { version } from '../../package.json'
+
+import {NtCabinetReact} from 'nt-cabinet-component/react';
 
 // import {initTooltip, clearTooltip} from '../../dist/nt-tooltip.es'
 // import '../../dist/nt-tooltip.css'
@@ -116,7 +117,7 @@ function App() {
       </Souple>
       <Header />
       <MainPage />
-      <Cabinet />
+      <NtCabinetReact module="nt-tooltip" />
     </>
   )
 }

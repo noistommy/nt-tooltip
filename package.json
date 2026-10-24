@@ -73,6 +73,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@noistommy/souple": "^1.0.1"
+    "@lit/react": "^1.0.8",
+    "@noistommy/souple": "^1.0.1",
+    "lit": "^3.3.3",
+    "nt-cabinet-component": "github:noistommy/nt-cabinet-component"
   }
 }
