@@ -123,9 +123,9 @@ export const padding = `
 // @type: number
 // @default: 8
 
-<Parent nt-tooltip="padding: 4;">4px Padding</Parent>
-<Parent nt-tooltip="padding: 16;">16px Padding</Parent>
-<Parent nt-tooltip="padding: 24;">24px Padding</Parent>
+<Parent nt-tooltip="padding: 4;">Padding 4px 6px</Parent>
+<Parent nt-tooltip="padding: 16;">Padding 16px 24px</Parent>
+<Parent nt-tooltip="padding: 24;">Padding 24px 36px</Parent>
 `;
 
 export const zIndex = `

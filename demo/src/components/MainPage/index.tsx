@@ -411,7 +411,7 @@ export default function MainPage() {
       <div className="detail mt-10">
         <div className="header">
           <div className="bold large">Padding</div>
-          <p>툴팁 콘텐츠 영역의 여백을 설정합니다. 기본값은 <code className="be-tag label">8px</code> 입니다.</p>
+          <p>툴팁 콘텐츠 영역의 여백을 설정합니다. 기본값은 <code className="be-tag label">8</code> 입니다. 그래서 실제 적용되는 값은 <code className="be-tag label">padding: 8px 12px</code>이고 이는 (padding-inline = 적용값 * 1.5, padding-block = 적용값) 계산법에 따라 적용 됩니다. </p> 
         </div>
         <div>
           <div className="be-segment surface align-center">
@@ -419,29 +419,29 @@ export default function MainPage() {
                   <div className="be-button border" nt-tooltip="padding: 4;">
                       Padding 4
                       <span nt-target="true">
-                        <div className='h5'>Padding 4</div>
-                        {lorem}
+                        <div className='h5'>Padding: 4</div>
+                        <p>padding: 4px 6px</p>
                       </span>
                   </div>
                   <div className="be-button border" nt-tooltip="true">
                       Padding 8 (default)
                       <span nt-target="true">
-                        <div className='h5'>Padding 8</div>
-                        {lorem}
+                        <div className='h5'>Padding: 8</div>
+                        <p>padding: 8px 12px</p>
                       </span>
                   </div>
                   <div className="be-button border" nt-tooltip="padding: 16;">
                       Padding 16
                       <span nt-target="true">
-                        <div className='h5'>Padding 16</div>
-                        {lorem}
+                        <div className='h5'>Padding: 16</div>
+                        <p>padding: 16px 24px</p>
                       </span>
                   </div>
                   <div className="be-button border" nt-tooltip="padding: 24;">
                       Padding 24
                       <span nt-target="true">
-                        <div className='h5'>Padding 24</div>
-                        {lorem}
+                        <div className='h5'>Padding: 24</div>
+                        <p>padding: 24px 36px</p>
                       </span>
                   </div>
               </div>
